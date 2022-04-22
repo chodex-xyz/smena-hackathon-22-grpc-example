@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+message Album {
+   string title = 1;
+   int32 id = 2;
+   repeated Track tracks = 3;
+}
+
+message Track {
+  string title = 1;
+}
+
+service Catalog {
+  rpc ListAlbums (HelloRequest) returns (stream Album) {}
+}
+
+
+message HelloRequest {
+  string name = 1;
+}
+
